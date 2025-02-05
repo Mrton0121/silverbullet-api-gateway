@@ -32,6 +32,13 @@ services:
 - **[SEPARATOR]**: the separator string you defined in the ENV variable
 - **[TAB]**: indentation ( `\t` char )
 
+## Example usage: 
+
+```
+curl -X POST -d "data=HelloWorld!" http://localhost:8080
+```
+
+
 ## Use cases:
 
 I made this service because I wanted a quick way for saving my clipboard on my iPhone. I created a shortcut on my phone which sends a POST request to this service and it gets written into silverbullet. This way I can quickly share urls, texts, almost everything. (Pictures are not supported in the Shortcuts Clipboard variable AFAIK)
