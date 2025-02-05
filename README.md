@@ -24,3 +24,19 @@ services:
     ports:
       - 8080:8080
 ```
+
+## Magic variables:
+
+- **[TEXT]**: the data read from the POST request
+- **[DATE]**: the current date in timedate format ( e.g: `2006-01-02 15:04:05` )
+- **[SEPARATOR]**: the separator string you defined in the ENV variable
+- **[TAB]**: indentation ( `\t` char )
+
+## Use cases:
+
+I made this service because I wanted a quick way for saving my clipboard on my iPhone. I created a shortcut on my phone which sends a POST request to this service and it gets written into silverbullet. This way I can quickly share urls, texts, almost everything. (Pictures are not supported in the Shortcuts Clipboard variable AFAIK)
+
+I'm sure you can come up with something too if you're interested in it. Tickets are welcome!
+
+
+Author: Márton Gombócz (Mrton0121)
