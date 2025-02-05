@@ -55,30 +55,34 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Printf("[LOG]: Appending %s with: %s%s\n", page, data, separator)
 
+	// Check if page exists
 	resp, err := sbClient.Get(page)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
+	// If yes, append it
 	if resp != "404 Not Found" {
 		resp, err = sbClient.Append(page, data, separator)
 		if err != nil {
 			fmt.Println(err.Error())
 		}
+		// If not, create it and put the data into it
 	} else {
+		fmt.Printf("[LOG]: Page %s is not existing: %s\n", page, resp)
 		resp, err = sbClient.Put(page, data)
 		if err != nil {
 			fmt.Println(err.Error())
 		}
 
-		fmt.Printf("[LOG]: New page created: %s\n", resp)
+		fmt.Printf("[LOG]: New page %s created: %s\n", page, resp)
 
 		resp, err = sbClient.Append(page, separator, "")
 		if err != nil {
 			fmt.Println(err.Error())
 		}
 
-		fmt.Printf("[LOG]: Added separator to new page: %s\n", resp)
+		fmt.Printf("[LOG]: Added separator to new page %s: %s\n", page, resp)
 	}
 
 	fmt.Printf("[LOG]: Appending %s: %s", page, resp)
