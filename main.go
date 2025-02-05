@@ -24,7 +24,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	// Read the "data" field
 	data := r.FormValue("data")
-	fmt.Println("[LOG]: Received data: %s\n", data) // Logs the received data
+	fmt.Printf("[LOG]: Received data: %s\n", data) // Logs the received data
 
 	// Getting the SilverBullet variables
 	endpoint := os.Getenv("SB_URL")

@@ -13,7 +13,7 @@ You just need to copy the following `docker-compose.yml` to your host and overwr
 ```
 services:
   sb-api-gateway:
-    image: sb-api-gateway
+    image: mrton0121/silverbullet-api-gateway
     restart: unless-stopped
     environment:
     - SB_URL=http://your-host.xyz:3000 # REQUIRED, The url of your Silverbullet instance
